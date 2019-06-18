@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { auth } from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auht:AuthService) { }
 
   ngOnInit() {
   }
-
+  login(data){
+    this.auht.login(data.email,data.password);
+  }
 }
